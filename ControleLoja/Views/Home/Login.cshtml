@@ -1,0 +1,82 @@
+﻿@model VendedorModel
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ControleLoja</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="login-form" style="margin-top:250px">
+        <form asp-controller="Home" asp-action="Login" method="post">
+            <h2 class="text-center">Entrar</h2>
+
+            <div class="form-group">
+                <input type="email" class="form-control" asp-for="Email" placeholder="Email" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" asp-for="Senha" placeholder="Senha" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            </div>
+            <div class="clearfix">
+                <label class="float-left form-check-label"><input type="checkbox"> Lembrar- me</label>
+                <a href="#" class="float-right">Esqueceu a senha?</a>
+            </div>
+        </form>
+        <p class="text-center"><a href="#">Criar conta</a></p>
+
+        @{
+            ViewData["Valida"] = "";
+        }
+    </div>
+</body>
+</html>
+
+<style type="text/css">
+    body {
+        background-image: url('../../images/bgMenu.jpg');
+        background-size:cover;
+       
+    }
+
+    .login-form {
+        width: 340px;
+        margin: 50px auto;
+        font-size: 15px;
+    }
+
+        .login-form form {
+            margin-bottom: 15px;
+            background-color: #EEDC82;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        .login-form h2 {
+            margin: 0 0 15px;
+        }
+
+
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+
+    }
+
+    .btn {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+</style>
+

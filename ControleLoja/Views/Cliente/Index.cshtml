@@ -1,0 +1,24 @@
+﻿@model ClienteModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cadastro de Cliente</h1>
+
+<form asp-action="Salvar" asp-controller="Cliente">
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input type="text" class="form-control" asp-for="Nome">
+        <label asp-for="Cel"></label>
+        <input type="tel" class="form-control" asp-for="Cel">
+        <label asp-for="Email"></label>
+        <input type="email" class="form-control" asp-for="Email">
+        <input type="hidden" asp-for="Id">
+    </div>
+
+    @Html.Raw(ViewData["Valida"])
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <button class="btn btn-primary" type="button" onclick="window.location.href ='/Cliente/listacliente'">Lista de Clientes</button>
+
+</form>

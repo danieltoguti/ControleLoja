@@ -1,0 +1,24 @@
+﻿
+@{
+    @model VendedorModel;
+    ViewData["Title"] = "index";
+}
+
+<h1>Cadastro de Vendedor</h1>
+
+<form asp-action="Salvar" asp-controller="Vendedor">
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input type="text" class="form-control" asp-for="Nome">
+        <label asp-for="Email"></label>
+        <input type="email" class="form-control" asp-for="Email">
+        <label asp-for="Senha"></label>
+        <input type="password" class="form-control" asp-for="Senha">
+        <input type="hidden" asp-for="Id">
+    </div>
+
+    @Html.Raw(ViewData["Valida"])
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+
+</form>
