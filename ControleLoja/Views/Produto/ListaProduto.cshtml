@@ -32,6 +32,13 @@
                         <td>@item.Cidade</td>
                         <td>@item.Cel</td>
                         <td>@item.Email</td>
+                        <td>
+                            @try
+                            {
+                                <img src="https://static.natura.com/cdn/farfuture/ev8ZcHHOWfDG05LHxYgrz7BBlGBN1u2wBZpse0gtkE0/1584727806/sites/default/files/products/72147_1_2.jpg" width="150" height="150" />
+                            }
+                            catch { }
+                        </td>
                         <td><button type="button" class="btn btn-warning" onclick="window.location.href='/cliente/editar?Id=@item.Id&Nome=@item.Nome&Cidade=@item.Cidade&Cel=@item.Cel&Email=@item.Email'">Editar</button></td>
                         <td><button type="button" class="btn btn-danger" onclick="window.location.href='/cliente/excluir?Id=@item.Id'">Excluir</button></td>
                     </tr>
@@ -49,13 +56,8 @@
     <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/Cliente/index'">Cadastrar Cliente</button>
 </div>
 
-<div>
-    <select class="bg-warning">
-        <option>Opção 1</option>
-        <option>Opção 2</option>
-        <option>Opção 3</option>
-        <option>Opção 4</option>
-    </select>
+<div class="form-group">
+ 
 
 </div >
 

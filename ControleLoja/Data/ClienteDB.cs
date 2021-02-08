@@ -19,8 +19,9 @@ namespace ControleLoja.Data
                 MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
                 cn.Open();
 
-                sSQL = "insert into cliente (nome, cel, email) values (@nome, @cel, @email)";
+                sSQL = "insert into cliente (nome, cidade, cel, email) values (@nome, @cidade, @cel, @email)";
                 cmd.Parameters.AddWithValue("@nome", obj.Nome);
+                cmd.Parameters.AddWithValue("@cidade", obj.Cidade);
                 cmd.Parameters.AddWithValue("@cel", obj.Cel);
                 cmd.Parameters.AddWithValue("@email", obj.Email);
 
@@ -46,8 +47,9 @@ namespace ControleLoja.Data
                 MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
                 cn.Open();
 
-                sSQL = "update cliente set nome=@nome, cel=@cel, email=@email where id=@id";
+                sSQL = "update cliente set nome=@nome, cidade=@cidade, cel=@cel, email=@email where id=@id";
                 cmd.Parameters.AddWithValue("@nome", obj.Nome);
+                cmd.Parameters.AddWithValue("@cidade", obj.Cidade);
                 cmd.Parameters.AddWithValue("@cel", obj.Cel);
                 cmd.Parameters.AddWithValue("@email", obj.Email);
                 cmd.Parameters.AddWithValue("@id", obj.Id);
@@ -97,8 +99,11 @@ namespace ControleLoja.Data
                 MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
                 cn.Open();
 
-                sSQL = "select * from cliente where nome=@nome";
+                sSQL = "select * from cliente where nome=@nome and cidade=@cidade and cel=@cel and email=@email";
                 cmd.Parameters.AddWithValue("@nome", obj.Nome);
+                cmd.Parameters.AddWithValue("@cidade", obj.Cidade);
+                cmd.Parameters.AddWithValue("@cel", obj.Cel);
+                cmd.Parameters.AddWithValue("@email", obj.Email);
 
                 cmd.CommandText = sSQL;
                 cmd.Connection = cn;
@@ -134,6 +139,7 @@ namespace ControleLoja.Data
                     {
                         Id = Convert.ToInt32(Dr["Id"]),
                         Nome = Dr["Nome"].ToString(),
+                        Cidade = Dr["Cidade"].ToString(),
                         Cel = Dr["Cel"].ToString(),
                         Email = Dr["Email"].ToString()
                     };

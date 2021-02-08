@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vBBylEang/3Vw2hQC1cq198h1wnVmQ2TWI1rQ8C7cGuAaTbfMwBexYbgOofGDutUYBAtmPJQ4bI6ITw+8R6lNg==",
+  "dgSpecHash": "YBJkb/lE2EOnMsx5FT1fNeA6y1RErrEda6mtXVG8N1ZK0czdUOseBwkzPsTEUuFyyLbM5EqK2VoYAiZ8bSrrFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Desktop\\ControleLoja\\ControleLoja\\ControleLoja.csproj",
+  "projectFilePath": "C:\\Users\\danie\\Documents\\GitHub\\ControleLoja\\ControleLoja\\ControleLoja.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",

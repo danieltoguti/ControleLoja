@@ -1,6 +1,7 @@
 ﻿using ControleLoja.Data;
 using ControleLoja.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,24 @@ namespace ControleLoja.Controllers
             return View();
         }
 
+        public IActionResult Produto()
+        {
+            ViewBag.ClienteId = new SelectList
+                (new ClienteModel().ListaClientes(), "Nome");
+            return View();
+
+        }
+
+        [HttpPost]
+        public IActionResult Produto(string Id)
+        {
+            ViewBag.ClienteId = new SelectList
+                (new ClienteModel().ListaClientes(), "Nome", Id);
+
+            return View();
+
+        }
+
         public IActionResult ListaCliente()
         {
             ClienteDB Cliente = new ClienteDB();
@@ -23,11 +42,12 @@ namespace ControleLoja.Controllers
             return View(MLista);
         }
 
-        public IActionResult Editar(int Id, string Nome, string Cel, string Email)
+        public IActionResult Editar(int Id, string Nome, string Cidade, string Cel, string Email)
         {
             var model = new ClienteModel();
             model.Id = Id;
             model.Nome = Nome;
+            model.Cidade = Cidade;
             model.Cel = Cel;
             model.Email = Email;
             ViewData["Valida"] = "";

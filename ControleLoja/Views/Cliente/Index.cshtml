@@ -9,11 +9,17 @@
     <div class="form-group">
         <label asp-for="Nome"></label>
         <input type="text" class="form-control" asp-for="Nome">
+        <label asp-for="Cidade"></label>
+        <input type="text" class="form-control" asp-for="Cidade">
         <label asp-for="Cel"></label>
         <input type="tel" class="form-control" asp-for="Cel">
         <label asp-for="Email"></label>
         <input type="email" class="form-control" asp-for="Email">
         <input type="hidden" asp-for="Id">
+        <select asp-for="Email">
+            <option></option>
+            <option></option>
+        </select>
     </div>
 
     @Html.Raw(ViewData["Valida"])
