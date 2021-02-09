@@ -19,6 +19,9 @@ namespace ControleLoja.Models
         [Display(Name = "Preço Custo", Prompt = "")]
         public double PrecoCusto { get; set; }
 
+        [Display(Name = "Preço Sugerido", Prompt = "")]
+        public double PrecoSugerido { get; set; }
+
 
         [Display(Name = "Quantidade", Prompt = "")]
         public int Qtd { get; set; }
@@ -31,9 +34,8 @@ namespace ControleLoja.Models
         [Display(Name = "Genero", Prompt = "")]
         public string Genero { get; set; }
 
-
-
-
+        [Display(Name = "Validade", Prompt = "")]
+        public DateTime Validade { get; set; }
 
 
     }

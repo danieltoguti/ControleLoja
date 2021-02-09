@@ -1,11 +1,11 @@
 ﻿@{
-    @model List<ClienteModel>;
+    @model List<ProdutoModel>;
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h4>Lista de Clientes</h4>
-    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/Cliente/index'">Cadastrar Cliente</button>
+    <h4>Lista de Produto</h4>
+
     @if (Model.Count > 0)
     {
         <table class="table">
@@ -14,34 +14,28 @@
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
-                    <th>Cidade</th>
-                    <th>Celular</th>
-                    <th>Email</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Preço de Custo</th>
+                    <th>Preço Sugerido</th>
+                    <th>Quantidade</th>
+                    <th>Categoria</th>
+                    <th>Genero</th>
+                    <th>Validade</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Nome</td>
-                        <td>@item.Cidade</td>
-                        <td>@item.Cel</td>
-                        <td>@item.Email</td>
-                        <td>
-                            @try
-                            {
-                                <img src="https://static.natura.com/cdn/farfuture/ev8ZcHHOWfDG05LHxYgrz7BBlGBN1u2wBZpse0gtkE0/1584727806/sites/default/files/products/72147_1_2.jpg" width="150" height="150" />
-                            }
-                            catch { }
-                        </td>
-                        <td><button type="button" class="btn btn-warning" onclick="window.location.href='/cliente/editar?Id=@item.Id&Nome=@item.Nome&Cidade=@item.Cidade&Cel=@item.Cel&Email=@item.Email'">Editar</button></td>
-                        <td><button type="button" class="btn btn-danger" onclick="window.location.href='/cliente/excluir?Id=@item.Id'">Excluir</button></td>
-                    </tr>
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nome</td>
+                    <td>@item.PrecoCusto</td>
+                    <td>@item.PrecoSugerido</td>
+                    <td>@item.Qtd</td>
+                    <td>@item.Categoria</td>
+                    <td>@item.Genero</td>
+                    <td>@item.Validade</td>
+
+                </tr>
                 }
             </tbody>
         </table>
@@ -53,7 +47,7 @@
         </div>
     }
 
-    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/Cliente/index'">Cadastrar Cliente</button>
+    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/produto/index'">Cadastrar Cliente</button>
 </div>
 
 <div class="form-group">
