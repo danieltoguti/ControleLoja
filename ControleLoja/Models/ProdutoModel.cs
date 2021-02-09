@@ -16,6 +16,14 @@ namespace ControleLoja.Models
         public string Nome { get; set; }
 
 
+        [Display(Name = "Preço Custo", Prompt = "")]
+        public double PrecoCusto { get; set; }
+
+
+        [Display(Name = "Quantidade", Prompt = "")]
+        public int Qtd { get; set; }
+
+
         [Display(Name = "Categoria", Prompt = "")]
         public string Categoria { get; set; }
 
@@ -24,15 +32,9 @@ namespace ControleLoja.Models
         public string Genero { get; set; }
 
 
-        [Display(Name = "Preço Custo", Prompt = "")]
-        public double PrecoCusto { get; set; }
 
 
-        [Display(Name = "Preço Venda", Prompt = "")]
-        public double PrecoVenda { get; set; }
 
 
-        [Display(Name = "Quantidade", Prompt = "")]
-        public int Qtd { get; set; }
     }
 }
