@@ -13,14 +13,25 @@ namespace ControleLoja.Controllers
     {
         public IActionResult Index()
         {
-            ProdutoDB Cat = new ProdutoDB();
-            ViewBag.GetCategoria = new SelectList(Cat.GetCategoria(), "Id", "categoria");
-
-            ProdutoDB Gen = new ProdutoDB();
-            ViewBag.GetGenero = new SelectList(Gen.GetGenero(), "Id", "categoria");
 
             ViewData["Valida"] = "";
             return View();
+        }
+
+        public IActionResult Categoria()
+        {
+            ProdutoDB Cat = new ProdutoDB();
+            ViewBag.Categoria = new SelectList(Cat.GetCategoria(), "Id", "categoria");
+
+            return View(Cat);
+        }
+
+        public IActionResult Genero()
+        {
+            ProdutoDB Gen = new ProdutoDB();
+            ViewBag.Genero = new SelectList(Gen.GetGenero(), "Id", "genero");
+
+            return View(Gen);
         }
 
 
