@@ -12,7 +12,7 @@ namespace ControleLoja.Models
 
 
         [Display(Name = "Nome", Prompt = "")]
-        public string Nome { get; set; }
+        public string Genero { get; set; }
     }
 
 }

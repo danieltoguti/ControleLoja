@@ -189,7 +189,7 @@ namespace ControleLoja.Data
                     var item = new CategoriaProdutoModel
                     {
                         Id = Convert.ToInt32(Dr["Id"]),
-                        Nome = Dr["Nome"].ToString(),
+                        Categoria = Dr["Categoria"].ToString(),
                     };
 
                     Lista.Add(item);
@@ -225,7 +225,7 @@ namespace ControleLoja.Data
                     var item = new GeneroProdutoModel
                     {
                         Id = Convert.ToInt32(Dr["Id"]),
-                        Nome = Dr["Nome"].ToString(),
+                        Genero = Dr["genero"].ToString(),
                     };
 
                     Lista.Add(item);
