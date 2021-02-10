@@ -151,8 +151,8 @@ namespace ControleLoja.Data
                         PrecoCusto = Convert.ToDouble(Dr["preco_custo"]),
                         PrecoSugerido = Convert.ToDouble(Dr["preco_sugerido"]),
                         Qtd = Convert.ToInt32(Dr["qtd"]),
-                        Categoria = Dr["categoria"].ToString(),
-                        Genero = Dr["genero"].ToString(),
+                        Categoria = Dr["categoria_produto"].ToString(),
+                        Genero = Dr["genero_produto"].ToString(),
                         Validade = Convert.ToDateTime(Dr["Validade"])
                     };
 
