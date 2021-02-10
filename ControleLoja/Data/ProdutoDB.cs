@@ -133,7 +133,7 @@ namespace ControleLoja.Data
                 MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
                 cn.Open();
 
-                sSQL = "SELECT p.nome, p.preco_custo, p.preco_sugerido, p.qtd, p.validade, c.nome, g.nome FROM produto AS p " +
+                sSQL =   "SELECT p.nome, p.preco_custo, p.preco_sugerido, p.qtd, p.validade, c.nome, g.nome FROM produto AS p " +
                     "LEFT  JOIN categoria_produto AS c ON p.idCategoria = c.id " +
                     "LEFT JOIN genero_produto AS g ON p.idGenero = g.id";
                 cmd.CommandText = sSQL;
@@ -148,12 +148,12 @@ namespace ControleLoja.Data
                     {
                         Id = Convert.ToInt32(Dr["Id"]),
                         Nome = Dr["Nome"].ToString(),
-                        PrecoCusto = Convert.ToDouble(Dr["Preço"]),
-                        PrecoSugerido = Convert.ToDouble(Dr["Preço"]),
-                        Qtd = Convert.ToInt32(Dr["Quantidade"]),
-                        Categoria = Dr["Categoria"].ToString(),
-                        Genero = Dr["Genero"].ToString() ,
-                        Validade = Convert.ToDateTime(Dr["Validade"])
+                        PrecoCusto = Convert.ToDouble(Dr["preco_custo"]),
+                        PrecoSugerido = Convert.ToDouble(Dr["preco_sugerido"]),
+                        Qtd = Convert.ToInt32(Dr["qtd"]),
+                        Categoria = Dr["idCategoria"].ToString(),
+                        Genero = Dr["idGenero"].ToString(),
+                        //Validade = Convert.ToDateTime(Dr["Validade"])
                     };
 
                     Lista.Add(item);
