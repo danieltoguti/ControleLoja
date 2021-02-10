@@ -168,5 +168,78 @@ namespace ControleLoja.Data
             }
         }
 
+        public List<CategoriaProdutoModel> GetCategoria()
+        {
+            try
+            {
+                string sSQL = "";
+                MySqlCommand cmd = new MySqlCommand();
+                MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
+                cn.Open();
+
+                sSQL = "select * from categoria_produto";
+                cmd.CommandText = sSQL;
+                cmd.Connection = cn;
+                var Dr = cmd.ExecuteReader();
+
+                var Lista = new List<CategoriaProdutoModel>();
+
+                while (Dr.Read())
+                {
+                    var item = new CategoriaProdutoModel
+                    {
+                        Id = Convert.ToInt32(Dr["Id"]),
+                        Nome = Dr["Nome"].ToString(),
+                    };
+
+                    Lista.Add(item);
+                }
+
+                return Lista;
+            }
+            catch (Exception e)
+            {
+                string msg = e.Message;
+                return null;
+            }
+        }
+
+        public List<GeneroProdutoModel> GetGenero()
+        {
+            try
+            {
+                string sSQL = "";
+                MySqlCommand cmd = new MySqlCommand();
+                MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
+                cn.Open();
+
+                sSQL = "select * from genero_produto";
+                cmd.CommandText = sSQL;
+                cmd.Connection = cn;
+                var Dr = cmd.ExecuteReader();
+
+                var Lista = new List<GeneroProdutoModel>();
+
+                while (Dr.Read())
+                {
+                    var item = new GeneroProdutoModel
+                    {
+                        Id = Convert.ToInt32(Dr["Id"]),
+                        Nome = Dr["Nome"].ToString(),
+                    };
+
+                    Lista.Add(item);
+                }
+
+                return Lista;
+            }
+            catch (Exception e)
+            {
+                string msg = e.Message;
+                return null;
+            }
+        }
     }
+
+
 }
