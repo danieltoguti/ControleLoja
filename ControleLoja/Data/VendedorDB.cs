@@ -97,7 +97,7 @@ namespace ControleLoja.Data
                 MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
                 cn.Open();
 
-                sSQL = "select * from vendedor where nome=@nome";
+                sSQL = "select * from vendedor where nome=@nome and email=@email";
                 cmd.Parameters.AddWithValue("@nome", obj.Nome);
 
                 cmd.CommandText = sSQL;

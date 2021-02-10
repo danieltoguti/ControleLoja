@@ -16,7 +16,30 @@ namespace ControleLoja.Controllers
             return View();
         }
 
+        public IActionResult ListaVendedor()
+        {
+            VendedorDB Vend = new VendedorDB();
+            var MLista = Vend.GetAll();
+            return View(MLista);
+        }
 
+        public IActionResult Editar(int Id, string Nome, string Email, string Senha)
+        {
+            var model = new VendedorModel();
+            model.Id = Id;
+            model.Nome = Nome;
+            model.Email = Email;
+            model.Senha = Senha;
+            ViewData["Valida"] = "";
+            return View("index", model);
+        }
+
+        public IActionResult Excluir(int Id)
+        {
+            VendedorDB Vend = new VendedorDB();
+            Vend.ExcluirDados(Id);
+            return RedirectToAction("ListaVendedor", "Vendedor");
+        }
         public IActionResult Salvar(VendedorModel obj)
         {
             string smgvalida = Validar(obj);

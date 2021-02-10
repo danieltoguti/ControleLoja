@@ -1,11 +1,11 @@
 ﻿@{
-    @model List<ClienteModel>;
+    @model List<VendedorModel>;
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h4>Lista de Clientes</h4>
-    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/Cliente/index'">Cadastrar Cliente</button>
+    <h4>Lista de Vendedores</h4>
+    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/vendedor/index'">Cadastrar Vendedor</button>
     @if (Model.Count > 0)
     {
         <table class="table">
@@ -14,8 +14,6 @@
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
-                    <th>Cidade</th>
-                    <th>Celular</th>
                     <th>Email</th>
                     <th></th>
                     <th></th>
@@ -29,11 +27,9 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@item.Nome</td>
-                        <td>@item.Cidade</td>
-                        <td>@item.Cel</td>
                         <td>@item.Email</td>
-                        <td><button type="button" class="btn btn-warning" onclick="window.location.href='/cliente/editar?Id=@item.Id&Nome=@item.Nome&Cidade=@item.Cidade&Cel=@item.Cel&Email=@item.Email'">Editar</button></td>
-                        <td><button type="button" class="btn btn-danger" onclick="window.location.href='/cliente/excluir?Id=@item.Id'">Excluir</button></td>
+                        <td><button type="button" class="btn btn-warning" onclick="window.location.href='/vendedor/editar?Id=@item.Id&Nome=@item.Nome&Email=@item.Email&senha=@item.Senha'">Editar</button></td>
+                        <td><button type="button" class="btn btn-danger" onclick="window.location.href='/vendedor/excluir?Id=@item.Id'">Excluir</button></td>
                     </tr>
                 }
             </tbody>
@@ -46,7 +42,7 @@
         </div>
     }
 
-    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/Cliente/index'">Cadastrar Cliente</button>
+    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/vendedor/index'">Cadastrar Cliente</button>
 </div>
 
 
