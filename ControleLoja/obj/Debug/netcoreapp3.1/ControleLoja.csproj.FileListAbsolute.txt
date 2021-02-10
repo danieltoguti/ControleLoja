@@ -829,4 +829,3 @@ C:\Users\danie\Documents\GitHub\ControleLoja\ControleLoja\obj\Debug\netcoreapp3.
 C:\Users\danie\Documents\GitHub\ControleLoja\ControleLoja\obj\Debug\netcoreapp3.1\ControleLoja.pdb
 C:\Users\danie\Documents\GitHub\ControleLoja\ControleLoja\obj\Debug\netcoreapp3.1\ControleLoja.genruntimeconfig.cache
 C:\Users\danie\Documents\GitHub\ControleLoja\ControleLoja\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ListaProduto.cshtml.g.cs
-C:\Users\danie\Documents\GitHub\ControleLoja\ControleLoja\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Produto.cshtml.g.cs

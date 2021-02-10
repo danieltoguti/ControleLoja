@@ -8,7 +8,7 @@ namespace ControleLoja.Models
 {
     public class ClienteModel
     {
-        public  int Id { get; set; }
+        public int Id { get; set; }
 
 
         [Display(Name = "Nome", Prompt = "")]
@@ -27,23 +27,8 @@ namespace ControleLoja.Models
         [Display(Name = "Email", Prompt = "")]
         public string Email { get; set; }
 
-        public List<ClienteModel> ListaClientes()
 
-        {
 
-            return new List<ClienteModel>
-
-            {
-
-                new ClienteModel { Nome = "Eduardo Pires"},
-
-                new ClienteModel { Nome = "João Silva"},
-
-                new ClienteModel { Nome = "Fulano de Tal" }
-
-            };
-
-        }
 
     }
 }

@@ -101,10 +101,14 @@ namespace ControleLoja.Data
                 MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
                 cn.Open();
 
-                sSQL = "select * from produto where nome=@nome and preco_custo=@preco_custo and qtd=@qtd and idCategoria=@idCategoria and idGenero=IdGenero";
+                sSQL = "select * from produto where nome=@nome and preco_custo=@preco_custo " +
+                    "and preco_sugerido=@preco_sugerido and qtd=@qtd and validade=@validade " +
+                    "and idCategoria=@idCategoria and idGenero=IdGenero";
                 cmd.Parameters.AddWithValue("@nome", obj.Nome);
                 cmd.Parameters.AddWithValue("@preco_custo", obj.PrecoCusto);
+                cmd.Parameters.AddWithValue("@preco_sugerido", obj.PrecoSugerido);
                 cmd.Parameters.AddWithValue("@qtd", obj.Qtd);
+                cmd.Parameters.AddWithValue("@Validade", obj.Validade);
                 cmd.Parameters.AddWithValue("@idCategoria", obj.Categoria);
                 cmd.Parameters.AddWithValue("@idGenero", obj.Genero);
 
@@ -129,9 +133,9 @@ namespace ControleLoja.Data
                 MySqlConnection cn = new MySqlConnection(CConexao.GET_StringConexao());
                 cn.Open();
 
-                sSQL = "SELECT p.nome, p.preco_custo, p.preco_sugerido, p.qtd, c.nome, g.nome FROM produto AS p " +
-                    "INNER  JOIN categoria_produto AS c ON p.idCategoria = c.id " +
-                    "INNER JOIN genero_produto AS g ON p.idGenero = g.id";
+                sSQL = "SELECT p.nome, p.preco_custo, p.preco_sugerido, p.qtd, p.validade, c.nome, g.nome FROM produto AS p " +
+                    "LEFT  JOIN categoria_produto AS c ON p.idCategoria = c.id " +
+                    "LEFT JOIN genero_produto AS g ON p.idGenero = g.id";
                 cmd.CommandText = sSQL;
                 cmd.Connection = cn;
                 var Dr = cmd.ExecuteReader();

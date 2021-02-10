@@ -12,7 +12,6 @@ namespace ControleLoja.Models
 
 
         [Display(Name = "Nome", Prompt = "")]
-
         public string Nome { get; set; }
 
 

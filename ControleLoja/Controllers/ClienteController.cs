@@ -17,23 +17,6 @@ namespace ControleLoja.Controllers
             return View();
         }
 
-        public IActionResult Produto()
-        {
-            ViewBag.ClienteId = new SelectList
-                (new ClienteModel().ListaClientes(), "Nome");
-            return View();
-
-        }
-
-        [HttpPost]
-        public IActionResult Produto(string Id)
-        {
-            ViewBag.ClienteId = new SelectList
-                (new ClienteModel().ListaClientes(), "Nome", Id);
-
-            return View();
-
-        }
 
         public IActionResult ListaCliente()
         {
