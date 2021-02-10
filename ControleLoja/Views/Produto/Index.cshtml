@@ -1,1 +1,35 @@
-﻿
+﻿@model ProdutoModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cadastro de Produto</h1>
+
+<form asp-action="Salvar" asp-controller="Produto">
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input type="text" class="form-control" asp-for="Nome">
+        <label asp-for="PrecoCusto"></label>
+        <input type="text" class="form-control" asp-for="PrecoCusto">
+        <label asp-for="PrecoSugerido"></label>
+        <input type="tel" class="form-control" asp-for="PrecoSugerido">
+        <label asp-for="Qtd"></label>
+        <input type="number" class="form-control" asp-for="Qtd">
+
+        <label asp-for="Categoria"></label>
+
+
+        <label asp-for="Genero"></label>
+
+
+        <label asp-for="Validade"></label>
+        <input type="date" class="form-control" asp-for="Validade">
+        <input type="hidden" asp-for="Id">
+
+    </div>
+
+    @Html.Raw(ViewData["Valida"])
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+
+</form>
