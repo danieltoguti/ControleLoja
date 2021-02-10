@@ -1,6 +1,7 @@
 ﻿using ControleLoja.Data;
 using ControleLoja.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,12 @@ namespace ControleLoja.Controllers
     {
         public IActionResult Index()
         {
+            ProdutoDB Cat = new ProdutoDB();
+            ViewBag.GetCategoria = new SelectList(Cat.GetCategoria(), "Id", "categoria");
+
+            ProdutoDB Gen = new ProdutoDB();
+            ViewBag.GetGenero = new SelectList(Gen.GetGenero(), "Id", "categoria");
+
             ViewData["Valida"] = "";
             return View();
         }
