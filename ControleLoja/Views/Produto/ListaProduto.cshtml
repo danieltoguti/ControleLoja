@@ -1,5 +1,5 @@
 ﻿@{
-    @model List<ProdutoModel>;
+    @model List<ProdutoModelVW>;
     ViewData["Title"] = "Home Page";
 }
 
@@ -28,14 +28,12 @@
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Nome</td>
-                    <td>@item.PrecoCusto</td>
-                    <td>@item.PrecoSugerido</td>
+                    <td>@string.Format(String.Format("{0:N2}", Convert.ToDouble(item.PrecoCusto)))</td>
+                    <td>@string.Format(String.Format("{0:N2}", Convert.ToDouble(item.PrecoSugerido)))</td>                    
                     <td>@item.Qtd</td>
                     <td>@item.Categoria</td>
-
-
-
-
+                    <td>@item.Genero</td>
+                    <td>@item.Validade.ToString("dd/MM/yyyy")</td>
                 </tr>
                 }
             </tbody>

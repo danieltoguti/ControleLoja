@@ -1,6 +1,8 @@
-﻿@model ProdutoModel
+﻿@model ProdutoModelVW
 @{
     ViewData["Title"] = "Index";
+    var LTCategorias = (List<SelectListItem>)(@ViewData["LTCategorias"]);
+    var LTGenero = (List<SelectListItem>)(@ViewData["LTGenero"]);
 }
 
 
@@ -14,15 +16,15 @@
         <label asp-for="PrecoCusto"></label>
         <input type="text" class="form-control" asp-for="PrecoCusto">
         <label asp-for="PrecoSugerido"></label>
-        <input type="tel" class="form-control" asp-for="PrecoSugerido">
+        <input type="text" class="form-control" asp-for="PrecoSugerido">
         <label asp-for="Qtd"></label>
         <input type="number" class="form-control" asp-for="Qtd">
 
-        <label asp-for="Categoria"></label>
-        @Html.DropDownList("Categoria")
+        <label asp-for="idCategoria"></label>
+        <select asp-for="idCategoria" asp-items="LTCategorias" class="form-control"></select>
 
-        <label asp-for="Genero"></label>
-        @Html.DropDownList("Genero")
+        <label asp-for="idGenero"></label>
+        <select asp-for="idGenero" asp-items="LTGenero" class="form-control"></select>
 
         <label asp-for="Validade"></label>
         <input type="date" class="form-control" asp-for="Validade">

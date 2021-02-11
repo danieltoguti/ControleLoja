@@ -1,7 +1,7 @@
 ﻿using ControleLoja.Data;
 using ControleLoja.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,28 +13,15 @@ namespace ControleLoja.Controllers
     {
         public IActionResult Index()
         {
+            ProdutoDB Cat = new ProdutoDB();
+            ProdutoDB Gen = new ProdutoDB();
+
+            ViewData["LTCategorias"] = Cat.GetCategoria();
+            ViewData["LTGenero"] = Gen.GetGenero();
 
             ViewData["Valida"] = "";
             return View();
         }
-
-        public IActionResult Categoria()
-        {
-            ProdutoDB Cat = new ProdutoDB();
-            ViewBag.Categoria = new SelectList(Cat.GetCategoria(), "Id", "categoria");
-
-            return View(Cat);
-        }
-
-        public IActionResult Genero()
-        {
-            ProdutoDB Gen = new ProdutoDB();
-            ViewBag.Genero = new SelectList(Gen.GetGenero(), "Id", "genero");
-
-            return View(Gen);
-        }
-
-
 
         public IActionResult ListaProduto()
         {
@@ -45,7 +32,7 @@ namespace ControleLoja.Controllers
 
         public IActionResult Editar(int Id, string Nome, double PrecoCusto, double PrecoSugerido, int Quantidade, string Categoria, string Genero, DateTime Validade)
         {
-            var model = new ProdutoModel();
+            var model = new ProdutoModelVW();
             model.Id = Id;
             model.Nome = Nome;
             model.PrecoCusto = PrecoCusto;
