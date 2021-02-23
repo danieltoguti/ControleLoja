@@ -19,5 +19,8 @@ namespace ControleLoja.Models
 
         [Display(Name = "Senha", Prompt = "")]
         public string Senha { get; set; }
+
+        [Display(Name = "Tipo", Prompt = "")]
+        public string Tipo { get; set; }
     }
 }

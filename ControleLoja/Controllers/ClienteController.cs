@@ -1,5 +1,6 @@
 ﻿using ControleLoja.Data;
 using ControleLoja.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleLoja.Controllers
 {
+    [Authorize(Roles = "ADM2")]  // AQUI LOGA TODO MUNDO QUE TEM O ROLE "ADM2" no caso ninguem então não vai deixar entrar na pagina
     public class ClienteController : Controller
     {
         public IActionResult Index()

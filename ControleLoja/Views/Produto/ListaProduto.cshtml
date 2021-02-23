@@ -3,48 +3,61 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h4>Lista de Produto</h4>
+<div>
+    <table class="table">
+        <tr>
+            <th><h2>Meus Produtos</h2></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="text-sm-right"><button class="btn btn-primary" type="button" onclick="window.location.href ='/produto/index'">Novo Produto</button>
+            <th>
+        </tr>
+    </table>
 
     @if (Model.Count > 0)
     {
-        <table class="table">
+<table class="table table-striped table-condensed table-hover">
 
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nome</th>
-                    <th>Preço de Custo</th>
-                    <th>Preço Sugerido</th>
-                    <th>Quantidade</th>
-                    <th>Categoria</th>
-                    <th>Genero</th>
-                    <th>Validade</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Nome</td>
-                    <td>@string.Format(String.Format("{0:N2}", Convert.ToDouble(item.PrecoCusto)))</td>
-                    <td>@string.Format(String.Format("{0:N2}", Convert.ToDouble(item.PrecoSugerido)))</td>                    
-                    <td>@item.Qtd</td>
-                    <td>@item.Categoria</td>
-                    <td>@item.Genero</td>
-                    <td>@item.Validade.ToString("dd/MM/yyyy")</td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <div class="alert alert-primary" role="alert">
-            Sem Registros!
-        </div>
-    }
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Preço de Custo</th>
+            <th>Preço Sugerido</th>
+            <th>Quantidade</th>
+            <th>Categoria</th>
+            <th>Genero</th>
+            <th>Validade</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Nome</td>
+            <td>@string.Format(String.Format("{0:N2}", Convert.ToDouble(item.Preco_Custo)))</td>
+            <td>@string.Format(String.Format("{0:N2}", Convert.ToDouble(item.Preco_Sugerido)))</td>
+            <td>@item.Qtd</td>
+            <td>@item.Categoria</td>
+            <td>@item.Genero</td>
+            <td>@item.Validade.ToString("dd/MM/yyyy")</td>
+            <td><button type="button" class="btn btn-warning" onclick="window.location.href='/produto/editar?Id=@item.Id&Nome=@item.Nome&preco_custo=@item.Preco_Custo&preco_sugerido=@item.Preco_Sugerido&qtd=@item.Qtd&validade=@item.Validade&idCategoria=@item.Categoria&idGenero=@item.Genero'">Editar</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="window.location.href='/produto/excluir?Id=@item.Id'">Excluir</button></td>
+
+        </tr>
+           }
+    </tbody>
+</table> }
+else
+{
+<div class="alert alert-primary" role="alert">
+    Sem Registros!
+</div>}
 
     <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/produto/index'">Cadastrar Cliente</button>
 </div>

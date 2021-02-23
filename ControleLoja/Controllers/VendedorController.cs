@@ -1,23 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ControleLoja.Classes;
 using ControleLoja.Data;
 using ControleLoja.Models;
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+
+
 
 namespace ControleLoja.Controllers
 {
     public class VendedorController : Controller
     {
+        private readonly IHttpContextAccessor _hCont;
+
+        public VendedorController(IHttpContextAccessor httpContextAccessor)
+        {
+            _hCont = httpContextAccessor;
+        }
+
         public IActionResult Index()
         {
+            ViewData["Nome"] = CMetodos_Autenticacao.GET_DadosUser(_hCont, CMetodos_Autenticacao.eDadosUser.Nome);
             ViewData["Valida"] = "";
             return View();
         }
 
         public IActionResult ListaVendedor()
         {
+            ViewData["Nome"] = CMetodos_Autenticacao.GET_DadosUser(_hCont, CMetodos_Autenticacao.eDadosUser.Nome);
             VendedorDB Vend = new VendedorDB();
             var MLista = Vend.GetAll();
             return View(MLista);

@@ -1,7 +1,8 @@
 ﻿using ControleLoja.Data;
 using ControleLoja.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleLoja.Controllers
 {
+    [Authorize(Roles = "Logado, ADM")] // AQUI LOGA TODO MUNDO QUE TIVER O ROLES "Logado,ADM"
     public class ProdutoController : Controller
     {
         public IActionResult Index()
@@ -35,8 +37,8 @@ namespace ControleLoja.Controllers
             var model = new ProdutoModelVW();
             model.Id = Id;
             model.Nome = Nome;
-            model.PrecoCusto = PrecoCusto;
-            model.PrecoSugerido = PrecoSugerido;
+            model.Preco_Custo = PrecoCusto;
+            model.Preco_Sugerido = PrecoSugerido;
             model.Qtd = Quantidade;
             model.Categoria = Categoria;
             model.Genero = Genero;
@@ -68,22 +70,22 @@ namespace ControleLoja.Controllers
 
                 if (Prod.InserirDados(obj))
                 {
-                    ViewData["Valida"] = "<div class='alert alert-success text-center' role='alert'>Cliente inserido(a) com sucesso!</div>";
+                    ViewData["Valida"] = "<div class='alert alert-success text-center' role='alert'>Produto inserido(a) com sucesso!</div>";
                 }
                 else
                 {
-                    ViewData["Valida"] = "<div class='alert alert-danger text-center' role='alert'>Erro ao inserir Cliente!</div>";
+                    ViewData["Valida"] = "<div class='alert alert-danger text-center' role='alert'>Erro ao inserir produto!</div>";
                 }
             }
             else
             {
                 if (Prod.UpdateDados(obj))
                 {
-                    ViewData["Valida"] = "<div class='alert alert-success text-center' role='alert'>Cadastro atualizado com sucesso!</div>";
+                    ViewData["Valida"] = "<div class='alert alert-success text-center' role='alert'Atualizado com sucesso!</div>";
                 }
                 else
                 {
-                    ViewData["Valida"] = "<div class='alert alert-danger text-center' role='alert'>Erro ao atualizar Cadastro!</div>";
+                    ViewData["Valida"] = "<div class='alert alert-danger text-center' role='alert'>Erro ao atualizar!</div>";
                 }
             }
 

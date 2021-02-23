@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using ControleLoja.Classes;
 using ControleLoja.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using MySql.Data.MySqlClient;
 
 namespace ControleLoja.Data
@@ -112,7 +116,7 @@ namespace ControleLoja.Data
             }
         }
 
-        public bool ValidarNomeLogin(VendedorModel obj)
+        public async Task<bool> ValidarNomeLoginAsync(VendedorModel obj, IHttpContextAccessor hcont)
         {
             try
             {
@@ -125,10 +129,31 @@ namespace ControleLoja.Data
 
                 cmd.Parameters.AddWithValue("@email", obj.Email);
                 cmd.Parameters.AddWithValue("@senha", obj.Senha);
+                cmd.Parameters.AddWithValue("@tipo", obj.Tipo);
 
                 cmd.CommandText = sSQL;
                 cmd.Connection = cn;
                 var Dr = cmd.ExecuteReader();
+
+                if (Dr.HasRows)
+                {
+                    Dr.Read();
+                    var claims1 = new[]
+                                               {
+                                new Claim("Nome",Dr["Nome"].ToString()),
+                                new Claim("Email",Dr["Email"].ToString()),
+                                new Claim("Tipo",Dr["Tipo"].ToString()),
+                                new Claim(ClaimTypes.Role, "Logado"),
+                                new Claim(ClaimTypes.Role, Dr["Tipo"].ToString()),
+                    }.ToList();
+
+
+                    var identity1 = new ClaimsIdentity(claims1, CookieAuthenticationDefaults.AuthenticationScheme);
+                    await hcont.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(identity1));
+                }
+
+
                 return Dr.HasRows;
             }
             catch (Exception e)
