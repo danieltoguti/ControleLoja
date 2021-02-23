@@ -5,6 +5,61 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\fonts\**" />
+    <Content Remove="wwwroot\fonts\**" />
+    <EmbeddedResource Remove="wwwroot\fonts\**" />
+    <None Remove="wwwroot\fonts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\animate.min.css" />
+    <Content Remove="wwwroot\css\demo.css" />
+    <Content Remove="wwwroot\css\light-bootstrap-dashboard.css" />
+    <Content Remove="wwwroot\css\pe-icon-7-stroke.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\fonts\Pe-icon-7-stroke.svg" />
+    <None Include="wwwroot\assets\img\loading-bubbles.svg" />
+    <None Include="wwwroot\assets\js\bootstrap-notify.js" />
+    <None Include="wwwroot\assets\js\bootstrap-select.js" />
+    <None Include="wwwroot\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\chartist.min.js" />
+    <None Include="wwwroot\assets\js\demo.js" />
+    <None Include="wwwroot\assets\js\jquery.3.2.1.min.js" />
+    <None Include="wwwroot\assets\js\light-bootstrap-dashboard.js" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_buttons.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_cards.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_chartist.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_icons.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_inputs.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_labels.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_morphing-buttons.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_navbars.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_social-buttons.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_tabs.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_transparency.scss" />
+    <None Include="wwwroot\assets\sass\lbd\mixins\_vendor-prefixes.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_alerts.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_buttons.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_cards.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_chartist.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_checkbox-radio-switch.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_dropdown.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_footers.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_inputs.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_misc.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_mixins.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_navbars.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_responsive.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_sidebar-and-main-panel.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_tables.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_typography.scss" />
+    <None Include="wwwroot\assets\sass\lbd\_variables.scss" />
+    <None Include="wwwroot\assets\sass\light-bootstrap-dashboard.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.11" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="MySql.Data" Version="8.0.23" />

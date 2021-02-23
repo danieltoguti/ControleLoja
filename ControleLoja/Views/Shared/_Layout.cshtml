@@ -1,13 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ControleLoja</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
+﻿<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-warning border-bottom box-shadow mb-3">
             <div class="container">
@@ -26,9 +17,9 @@
                         </li>
                     </ul>
                 </div>
-            Bem Vindo &nbsp;
-            <b>@ViewData["Nome"]</b> &nbsp;
-            <b><a class=" text-black-50" href="/home/login">(Logout)</a></b>
+                Bem Vindo &nbsp;
+                <b>@ViewData["Nome"]</b> &nbsp;
+                <b><a class=" text-black-50" href="/home/login">(Logout)</a></b>
             </div>
         </nav>
 
@@ -49,4 +40,3 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
-</html>
