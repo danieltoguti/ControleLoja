@@ -46,25 +46,21 @@
             <td>@item.Categoria</td>
             <td>@item.Genero</td>
             <td>@item.Validade.ToString("dd/MM/yyyy")</td>
-            <td><button type="button" class="btn btn-warning" onclick="window.location.href='/produto/editar?Id=@item.Id&Nome=@item.Nome&preco_custo=@item.Preco_Custo&preco_sugerido=@item.Preco_Sugerido&qtd=@item.Qtd&validade=@item.Validade&idCategoria=@item.Categoria&idGenero=@item.Genero'">Editar</button></td>
+            <td><button type="button" class="btn btn-warning" onclick="window.location.href='../produto/editar?Id=@item.Id'">Editar</button></td>
             <td><button type="button" class="btn btn-danger" onclick="window.location.href='/produto/excluir?Id=@item.Id'">Excluir</button></td>
 
         </tr>
            }
     </tbody>
 </table> }
-else
-{
-<div class="alert alert-primary" role="alert">
-    Sem Registros!
-</div>}
-
-    <button class="btn btn-block btn-primary" type="button" onclick="window.location.href ='/produto/index'">Cadastrar Cliente</button>
-</div>
-
-<div class="form-group">
-
+    else
+    {
+    <div class="alert alert-primary" role="alert">
+        Sem Registros!
+    </div>
+        }
 
 </div>
+
 
 

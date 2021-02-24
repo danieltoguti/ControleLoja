@@ -9,50 +9,60 @@
 <div class="row" style="text-align:center; font-family:Arial; font-size:medium; color:#242424;">
     @if (ViewData["Tipo"].ToString() == "ADM2")
     {
-    <table class="table table-borderless">
-        <tr>
-            <td><a href="../cliente/listacliente"><img src="~/images/clientes.png" width="150" height="150" /></a></td>
-            <td><a href="../vendedor/listavendedor"><img src="~/images/vendedores.png" width="150" height="150" /></a></td>
-            <td><a href="../produto/listaproduto"><img src="~/images/produtos.png" width="150" height="150" /></a></td>
-        </tr>
-        <tr>
-            <th><a href="../cliente/listacliente">Clientes</a></th>
-            <th><a href="../vendedor/listavendedor">Vendedores</a></th>
-            <th><a href="../produto/listaproduto">Produtos</a></th>
-        </tr>
-
-        <tr>
-            <td><a href="../venda/index"><img src="~/images/vendas.png" width="150" height="150" /></a></td>
-            <td><a href="../cliente/index"><img src="~/images/relatorios.png" width="150" height="150" /></a></td>
-            <td><a href="../cliente/index"><img src="~/images/configuracoes.png" width="150" height="150" /></a></td>
-        </tr>
-        <tr>
-            <th><a href="../venda/index">Registro de Vendas</a></th>
-            <th><a href="../cliente/index">Relatórios</a></th>
-            <th><a href="../cliente/index">Configurações</a></th>
-        </tr>
-    </table>
-    }
-    else
-    {
-    <table>
+        <table class="table table-borderless">
             <tr>
+                <td><a href="../cliente/listacliente"><img src="~/images/clientes.png" width="150" height="150" /></a></td>
                 <td><a href="../vendedor/listavendedor"><img src="~/images/vendedores.png" width="150" height="150" /></a></td>
                 <td><a href="../produto/listaproduto"><img src="~/images/produtos.png" width="150" height="150" /></a></td>
             </tr>
             <tr>
+                <th><a href="../cliente/listacliente">Clientes</a></th>
                 <th><a href="../vendedor/listavendedor">Vendedores</a></th>
                 <th><a href="../produto/listaproduto">Produtos</a></th>
             </tr>
+
             <tr>
+                <td><a href="../venda/index"><img src="~/images/vendas.png" width="150" height="150" /></a></td>
+                <td><a href="../cliente/index"><img src="~/images/relatorios.png" width="150" height="150" /></a></td>
+                <td><a href="../cliente/index"><img src="~/images/configuracoes.png" width="150" height="150" /></a></td>
+            </tr>
+            <tr>
+                <th><a href="../venda/index">Registro de Vendas</a></th>
+                <th><a href="../cliente/index">Relatórios</a></th>
+                <th><a href="../cliente/index">Configurações</a></th>
+            </tr>
+        </table>
+    }
+    else if (ViewData["Tipo"].ToString() == "ADM")
+    {
+        <table class ="table table-borderless">
+            <tr>
+                <td><a href="../vendedor/listavendedor"><img src="~/images/vendedores.png" width="150" height="150" /></a></td>
+                <td><a href="../produto/listaproduto"><img src="~/images/produtos.png" width="150" height="150" /></a></td>
                 <td><a href="../venda/index"><img src="~/images/vendas.png" width="150" height="150" /></a></td>
             </tr>
             <tr>
+                <th><a href="../vendedor/listavendedor">Vendedores</a></th>
+                <th><a href="../produto/listaproduto">Produtos</a></th>
                 <th><a href="../venda/index">Registro de Vendas</a></th>
             </tr>
         </table>
     }
-</div>
+    else
+    {
+        <table class="table table-borderless">
+            <tr>
+                <td><a href="../produto/listaproduto"><img src="~/images/produtos.png" width="150" height="150" /></a></td>
+                <td><a href="../venda/index"><img src="~/images/vendas.png" width="150" height="150" /></a></td>
+            </tr>
+            <tr>
+                <th><a href="../produto/listaproduto">Produtos</a></th>
+                <th><a href="../venda/index">Registro de Vendas</a></th>
+            </tr>
+        </table>
+    }
+
+    </div>
 
 
 
