@@ -11,10 +11,12 @@ namespace ControleLoja.Models
         public int Id { get; set; }
 
 
-        [Display(Name = "Nome", Prompt = "")]
+        [Display(Name = "Nome", Prompt = "Nome")]
 
         public string Nome { get; set; }
 
+        [Display(Name = "CEP", Prompt = "")]
+        public string CEP { get; set; }
 
         [Display(Name = "Cidade", Prompt = "")]
         public string Cidade { get; set; }
@@ -23,7 +25,7 @@ namespace ControleLoja.Models
         [Display(Name = "Celular", Prompt = "")]
         public string Cel { get; set; }
 
-
+        
         [Display(Name = "Email", Prompt = "")]
         public string Email { get; set; }
 

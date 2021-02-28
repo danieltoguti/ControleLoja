@@ -15,7 +15,6 @@ namespace ControleLoja.Data
         string sCNX = CConexao.GET_StringConexao();
 
 
-
         public bool InserirDados(ProdutoModel obj)
         {
             try

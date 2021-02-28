@@ -1,7 +1,5 @@
 ﻿@model ClienteModel
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 <h1>Cadastro de Cliente</h1>
 
@@ -9,8 +7,12 @@
     <div class="form-group">
         <label asp-for="Nome"></label>
         <input type="text" class="form-control" asp-for="Nome">
+
+        <label asp-for="CEP"></label>
+        <input type="text" id="cep" class="form-control" asp-for="CEP">
+
         <label asp-for="Cidade"></label>
-        <input type="text" class="form-control" asp-for="Cidade">
+        <input type="text" id="cidade" class="form-control" asp-for="Cidade">
         <label asp-for="Cel"></label>
         <input type="tel" class="form-control" asp-for="Cel">
         <label asp-for="Email"></label>
@@ -24,3 +26,78 @@
     <button type="submit" class="btn btn-primary">Registrar</button>
 
 </form>
+
+
+    <title>ViaCEP Webservice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Adicionando JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <!-- Adicionando Javascript -->
+    <script>
+
+        $(document).ready(function () {
+
+            function limpa_formulário_cep() {
+                // Limpa valores do formulário de cep.
+
+                $("#cidade").val("");
+
+            }
+
+            //Quando o campo cep perde o foco.
+            $("#cep").blur(function () {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+
+                        $("#cidade").val("...");
+
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+
+                                $("#cidade").val(dados.localidade);
+
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+        });
+
+    </script>
+
+
+
